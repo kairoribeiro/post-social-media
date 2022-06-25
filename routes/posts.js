@@ -6,6 +6,12 @@ const router = Router()
 // GET localhost:3000/posts
 router.get('/', postsCtrl.index)
 
+// 
+
+
+
+
+
 export {
   router
 }

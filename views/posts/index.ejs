@@ -1,0 +1,21 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+<% if (user) { %>
+<form action="/posts" method="POST" >
+    <label for="post-textarea"></label>
+    <textarea type= "text" name="post" id="post-textarea"></textarea>
+    <button class="btn" type="submit">Post</button>
+</form>
+<% } %>
+
+  <h1>Posts</h1>
+  <ul>
+  <% posts.forEach(post => { %>
+    <li> <%= post.name %> </li>
+  <% }) %>
+</ul>
+</section>
+
+<%- include('../partials/footer') %>
