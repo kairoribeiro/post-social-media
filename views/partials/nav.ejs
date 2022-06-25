@@ -5,9 +5,13 @@
 <body>
   <nav>
     <% if (user) { %>
-      <a href="/auth/logout">
-        <button type="submit">Logout</button>
-      </a>
+
+      <a href="/posts" <%- title === 'Home Page' ? 'class="active"' : '' %>>
+      Home
+    </a>
+
+      <a href="/auth/logout"><button class="btn" type="submit">Logout</button></a>
+     
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
         <button type="submit" class="siwg">
