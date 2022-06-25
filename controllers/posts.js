@@ -15,6 +15,22 @@ function index(req, res) {
   })
 }
 
+function create(req, res) {
+  req.body.author = req.user.profile._id
+  Post.create(req.body)
+  .then(post => {
+    res.redirect('/posts')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/posts')
+  })
+}
+
+
+
+
 export {
-  index
+  index,
+  create,
 }
