@@ -3,7 +3,8 @@ import * as postsCtrl from '../controllers/posts.js'
 
 const router = Router()
 
-router.get('/', )
+// GET localhost:3000/posts
+router.get('/', postsCtrl.index)
 
 export {
   router
