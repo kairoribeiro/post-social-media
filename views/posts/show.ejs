@@ -4,11 +4,37 @@
 
 <main>
   <section>
-    
     <div class="post"><%= post.post %></div>
-  
-
   </section>
+
+<h2>Comments</h2>
+<form 
+  id="add-comment-form"
+  action="/posts/<%= post._id %>/comments"
+  method="POST"
+>
+  <label for="post-textarea">Comment:</label>
+    <textarea type= "text" name="comment" id="post-textarea" cols="30" rows="10"></textarea>
+  <label for="reaction-select">Reaction:</label>
+  <select name="reaction" id="reaction-select">
+    <option value="👍" selected >👍</option>
+    <option value="💚">💚</option>
+    <option value="🤣">🤣</option>
+    <option value="😱">😱</option>
+    <option value="🤮">🤮</option>
+  </select>
+  <button type="submit">Add Comment</button>
+</form>
+
+<% post.comments.forEach(function(comment) { %>
+      <div class="post"><%= comment.comment %></div>
+      <div ><%= comment.createdAt.toLocaleDateString() %></div>
+      <div><%= comment.reaction %></div>
+    </tr>
+  <% }) %>
+
+
+
 </main>
   
 <%- include('../partials/footer') %>

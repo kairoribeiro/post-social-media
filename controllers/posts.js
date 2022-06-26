@@ -54,6 +54,22 @@ function deletePost(req, res) {
   })
 }
 
+function createComment(req, res) {
+  req.body.author = req.user.profile._id
+  Post.findById(req.params.id)
+  .then(post => {
+    post.comments.push(req.body)
+    post.save()
+    .then(() => {
+      res.redirect(`/posts/${post._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect("/")
+    })
+  })
+}
+
 
 
 export {
@@ -61,4 +77,5 @@ export {
   create,
   show,
   deletePost as delete,
+  createComment,
 }

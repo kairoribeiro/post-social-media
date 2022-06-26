@@ -10,11 +10,14 @@ router.get('/', postsCtrl.index)
 // POST localhost:3000/posts
 router.post('/', isLoggedIn, postsCtrl.create)
 
+// POST localhost:3000/posts/:id/comments
+router.post('/:id/comments', isLoggedIn, postsCtrl.createComment)
+
 // GET localhost:3000/posts/:id
 router.get('/:id', postsCtrl.show)
 
 //DELETE localhost:3000/posts/:id
-router.delete("/:id", postsCtrl.delete)
+router.delete("/:id", isLoggedIn, postsCtrl.delete)
 
 
 
