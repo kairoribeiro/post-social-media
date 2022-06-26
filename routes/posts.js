@@ -10,6 +10,9 @@ router.get('/', postsCtrl.index)
 // POST localhost:3000/posts
 router.post('/', isLoggedIn, postsCtrl.create)
 
+// GET
+router.get('/:id', postsCtrl.show)
+
 
 
 

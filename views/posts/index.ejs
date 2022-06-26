@@ -1,7 +1,10 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<section>
+<aside></aside>
+
+
+<main>
 <% if (user) { %>
 <form action="/posts" method="POST" >
     <label for="post-textarea"></label>
@@ -13,9 +16,12 @@
   <h1>Posts</h1>
   <ul>
   <% posts.forEach(post => { %>
-    <li> <%= post.name %> </li>
+    <li class="post"> <%= post.post %> </li>
+    <button class="btn"><a href="/posts/<%= post._id %>">DETAILS</a></button>
   <% }) %>
 </ul>
-</section>
+</main>
+
+<article></article>
 
 <%- include('../partials/footer') %>

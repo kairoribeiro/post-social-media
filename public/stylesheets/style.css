@@ -11,17 +11,22 @@ html {
   box-sizing: inherit;
 }
 
-/* resets font size to be 62.5% of the user preference - in most browser configurations this will be 10px */
+/* resets font size to be 62.5% of the user preference - in most browser configurations this will be 10px
 :root {
   font-size: 62.5%;
-}
+} */
 
 body {
-  background-color: gray;
+  background-color: rgb(166, 236, 158);
   /* Use a system font, if none are available use an available sans-sarif font */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-family: helvetica;
   margin: 0;
+  display: grid;
+  grid-template-areas: 
+        "nav nav nav nav"
+        "aside main main article"
+        "footer footer footerfooter";
+
 }
 
 nav {
@@ -40,4 +45,12 @@ main {
 
 h1 {
   font-size: 3.6rem;
+}
+
+.post {
+  background-color: white;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 25px;
 }
