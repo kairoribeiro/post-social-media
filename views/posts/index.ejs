@@ -18,6 +18,11 @@
   <% posts.forEach(post => { %>
     <li class="post"> <%= post.post %> </li>
     <button class="btn"><a href="/posts/<%= post._id %>">DETAILS</a></button>
+    <% if (user) { %>
+    <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+      <button class="delete-btn">Delete</button>
+    </form>
+    <% } %>
   <% }) %>
 </ul>
 </main>

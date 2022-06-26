@@ -42,10 +42,23 @@ function show(req, res) {
   })
 }
 
+function deletePost(req, res) {
+  req.body.author = req.user.profile._id
+  Post.findByIdAndDelete(req.params.id)
+  .then(() => {
+    res.redirect("/posts")
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
 
 
 export {
   index,
   create,
   show,
+  deletePost as delete,
 }
