@@ -72,11 +72,20 @@ function createComment(req, res) {
 
 
 function editComment(req, res) {
+  req.body.author = req.user.profile._id
+  Post.findById(req.params.id)
+  
+
+
   console.log("Gonna edit comment!")
 }
 
 
 function deleteComment(req, res) {
+  req.body.author = req.user.profile._id
+  Post.findByIdAndDelete(req.params.id)
+
+
   console.log("Gonna delete comment!")
 }
 

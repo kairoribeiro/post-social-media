@@ -3,17 +3,17 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <section>
-    <div class="post"><%= post.post %></div>
-  </section>
+  <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar"/>
+  <div class="post-area post" ><%= post.post %></div>
 
-<h2>Comment</h2>
+
+<!-- <h2>Comment</h2> -->
 <form 
   id="add-comment-form"
   action="/posts/<%= post._id %>/comments"
   method="POST"
 >
-  <!-- <label for="post-textarea">Comment:</label> -->
+  <label for="post-textarea">Comment:</label>
   <ul><li></li><textarea type= "text" name="comment" id="post-textarea" cols="85" rows="5" maxlength="150"></textarea></li></ul>
   <label for="reaction-select">Reaction:</label>
   <select name="reaction" id="reaction-select">
@@ -25,9 +25,10 @@
   </select>
   <button type="submit">talk</button>
 </form>
-<ul>
-<% post.comments.forEach(function(comment) { %>
-    <li class="post"><%= comment.comment %></li>
+
+    <% post.comments.forEach(function(comment) { %>
+    <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar"/>
+    <div class="comment"><%= comment.comment %></div>
     <div ><%= comment.createdAt.toLocaleDateString() %></div>
     <div><%= comment.reaction %></div>
 
@@ -37,7 +38,7 @@
     <% } %>
 
   <% }) %>
-</ul>
+
 
 
 </main>

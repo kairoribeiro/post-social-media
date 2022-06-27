@@ -1,22 +1,26 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<aside></aside>
+<aside>
+  <div><h1></h1></div>
+</aside>
 
 
 <main>
+  
 <% if (user) { %>
-<form action="/posts" method="POST" >
+<form class="post-area" action="/posts" method="POST" >
     <label for="post-textarea"></label>
     <textarea type= "text" name="post" id="post-textarea" cols="70" rows="5" maxlength="150"></textarea>
     <button class="btn" type="submit">talk</button>
 </form>
 <% } %>
 
-  <h1>Posts</h1>
-  <ul>
+  <h1>Timeline</h1>
+  <!-- <ul> -->
   <% posts.forEach(post => { %>
-    <li class="post"> <%= post.post %> </li>
+    <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar"/>
+    <div class="post"> <%= post.post %> </div>
     <button class="btn"><a href="/posts/<%= post._id %>">Details</a></button>
     <% if (user) { %>
     <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
@@ -25,9 +29,9 @@
     <% } %>
 
   <% }) %>
-</ul>
+<!-- </ul> -->
 </main>
 
-<article></article>
+<article><div><h1></h1></div></article>
 
 <%- include('../partials/footer') %>

@@ -9,8 +9,11 @@
       <a href="/posts" <%- title === 'Home Page' ? 'class="active"' : '' %>>
       Home
     </a>
+  <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar"/>
 
-      <a href="/auth/logout"><button class="btn" type="submit">Logout</button></a>
+    <a href="/auth/logout"><button class="btn" type="submit">Logout</button></a>
+
+      
      
     <% } else { %>
       <a href="/auth/google" class="siwg-link">

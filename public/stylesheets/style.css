@@ -22,6 +22,7 @@ body {
   font-family: helvetica;
   margin: 0;
   display: grid;
+  /* grid-template-columns: 25% 25% 25% 25%; */
   grid-template-areas: 
         "nav nav nav nav"
         "aside main main article"
@@ -30,10 +31,21 @@ body {
 }
 
 nav {
-  background-color: white;
-  font-size: 1.6rem;
+  background-color: rgb(42, 199, 65);
   display: flex;
-  justify-content: center;
+  height: 40px;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-size: 25px;
+  padding: 20px;
+  
+}
+
+nav > a {
+  margin: 10px;
 }
 
 main {
@@ -48,9 +60,28 @@ h1 {
 }
 
 .post {
-  background-color: white;
+  background-color: rgb(245, 165, 235);
   margin: 5px;
   border-radius: 5px;
   padding: 20px;
   font-size: 25px;
+  /* box-sizing: border-box; */
+  width: 70%;
+  margin-top: 30px;
+}
+
+.comment {
+  background-color: rgb(241, 207, 237);
+  margin: 5px;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 25px;
+  /* box-sizing: border-box; */
+  width: 60%;
+  margin-top: 30px;
+}
+
+.post-area{
+  margin-top: 70px;
+
 }
