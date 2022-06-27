@@ -20,6 +20,7 @@ body {
   background-color: rgb(133, 214, 124);
   /* Use a system font, if none are available use an available sans-sarif font */
   font-family: helvetica;
+  padding-top: 80px;
   margin: 0;
   display: grid;
   /* grid-template-columns: 25% 25% 25% 25%; */
@@ -40,7 +41,7 @@ nav {
   top: 0;
   width: 100%;
   font-size: 25px;
-  padding: 20px;
+  padding: 30px;
   
 }
 
@@ -67,7 +68,7 @@ h1 {
   font-size: 25px;
   /* box-sizing: border-box; */
   width: 70%;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 .comment {
@@ -78,10 +79,24 @@ h1 {
   font-size: 25px;
   /* box-sizing: border-box; */
   width: 60%;
-  margin-top: 30px;
+ 
 }
 
 .post-area{
-  margin-top: 70px;
+  /* margin-top: 70px; */
 
 }
+
+.profile-post {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 70%;
+  margin-top: 35px;
+  
+  }
+
+  img {
+    width: 70px;
+    height: 70px;
+  }

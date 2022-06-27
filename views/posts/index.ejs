@@ -19,13 +19,16 @@
   <h1>Timeline</h1>
   <!-- <ul> -->
   <% posts.forEach(post => { %>
+    <div class="profile-post">
+    <h3> <%= user.profile.name %></h3>
     <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar"/>
     <div class="post"> <%= post.post %> </div>
-    <button class="btn"><a href="/posts/<%= post._id %>">Details</a></button>
+    <form action="/posts/<%= post._id %>"><button class="btn">Details</button></form>
     <% if (user) { %>
     <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
       <button class="delete-btn">Delete</button>
     </form>
+  </div>
     <% } %>
 
   <% }) %>
