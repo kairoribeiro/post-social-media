@@ -7,32 +7,37 @@
     <div class="post"><%= post.post %></div>
   </section>
 
-<h2>Comments</h2>
+<h2>Comment</h2>
 <form 
   id="add-comment-form"
   action="/posts/<%= post._id %>/comments"
   method="POST"
 >
-  <label for="post-textarea">Comment:</label>
-    <textarea type= "text" name="comment" id="post-textarea" cols="30" rows="10"></textarea>
+  <!-- <label for="post-textarea">Comment:</label> -->
+  <ul><li></li><textarea type= "text" name="comment" id="post-textarea" cols="85" rows="5" maxlength="150"></textarea></li></ul>
   <label for="reaction-select">Reaction:</label>
   <select name="reaction" id="reaction-select">
-    <option value="👍" selected >👍</option>
+    <option value="👍">👍</option>
     <option value="💚">💚</option>
     <option value="🤣">🤣</option>
     <option value="😱">😱</option>
     <option value="🤮">🤮</option>
   </select>
-  <button type="submit">Add Comment</button>
+  <button type="submit">talk</button>
 </form>
-
+<ul>
 <% post.comments.forEach(function(comment) { %>
-      <div class="post"><%= comment.comment %></div>
-      <div ><%= comment.createdAt.toLocaleDateString() %></div>
-      <div><%= comment.reaction %></div>
-    </tr>
-  <% }) %>
+    <li class="post"><%= comment.comment %></li>
+    <div ><%= comment.createdAt.toLocaleDateString() %></div>
+    <div><%= comment.reaction %></div>
 
+    <% if (user) { %>
+    <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit"><button class="btn">Edit Comment</button></a>
+    <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST"><button class="delete-btn">Delete</button></form>
+    <% } %>
+
+  <% }) %>
+</ul>
 
 
 </main>

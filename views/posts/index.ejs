@@ -8,8 +8,8 @@
 <% if (user) { %>
 <form action="/posts" method="POST" >
     <label for="post-textarea"></label>
-    <textarea type= "text" name="post" id="post-textarea"></textarea>
-    <button class="btn" type="submit">Post</button>
+    <textarea type= "text" name="post" id="post-textarea" cols="70" rows="5" maxlength="150"></textarea>
+    <button class="btn" type="submit">talk</button>
 </form>
 <% } %>
 
@@ -17,12 +17,13 @@
   <ul>
   <% posts.forEach(post => { %>
     <li class="post"> <%= post.post %> </li>
-    <button class="btn"><a href="/posts/<%= post._id %>">DETAILS</a></button>
+    <button class="btn"><a href="/posts/<%= post._id %>">Details</a></button>
     <% if (user) { %>
     <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
       <button class="delete-btn">Delete</button>
     </form>
     <% } %>
+
   <% }) %>
 </ul>
 </main>

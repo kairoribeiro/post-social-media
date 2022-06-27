@@ -20,7 +20,12 @@ router.get('/:id', postsCtrl.show)
 router.delete("/:id", isLoggedIn, postsCtrl.delete)
 
 
+// GET localhost:3000/postsId/comments/commentId/edit
+router.get('/:postId/comments/:commentId/edit', isLoggedIn, postsCtrl.editComment)
 
+
+//DELETE localhost:3000/postsId/comments/commentId
+router.delete('/:postId/comments/:commentId', isLoggedIn, postsCtrl.deleteComment)
 
 
 export {
