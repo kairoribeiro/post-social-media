@@ -7,9 +7,11 @@
   <h3> <%= user.profile.name %></h3>
   <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar"/>
   <div class=" post" ><%= post.post %></div>
+  <% if (post.author.equals(user?.profile._id)) {  %>
   <a href="/posts/<%= post._id %>/edit">
     <button>Edit Post</button>
   </a>
+  <% } %>
 </div>
 
 
@@ -42,7 +44,7 @@
     <div><%= comment.reaction %></div>
 
 
-    <% if (user) { %>
+    <% if (comment.author.equals(user?.profile._id)) {  %>
     <!-- <form action="/posts/<%= post._id %>/comments/<%= comment._id %>/edit"><button class="btn">Edit Comment</button></form> -->
     <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST"><button class="delete-btn">Delete</button></form>
     <% } %>

@@ -4,7 +4,9 @@ const Schema = mongoose.Schema
 
 const commentSchema = new Schema({
   comment: String,
-  reaction: {type: String, default: 1}
+  reaction: {type: String, default: 1},
+  author: {type: Schema.Types.ObjectId, ref: "Profile"},
+
 }, {
   timestamps: true
 })

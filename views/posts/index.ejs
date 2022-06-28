@@ -5,7 +5,7 @@
   <div><h1></h1></div>
 </aside>
 
-
+<!-- if (post.author.equals(user?.profile._id)) { -->
 <main>
   
 <% if (user) { %>
@@ -20,12 +20,11 @@
   <!-- <ul> -->
   <% posts.forEach(post => { %>
     <div class="profile-post">
-    <h3> <%= user.profile.name %></h3>
-    <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar"/>
+    <h3> <%= post.author.name %></h3>
+    <img src="<%= post.author.avatar %>" alt="<%= post.author.name %> avatar"/>
     <div class="post"> <%= post.post %> </div>
     <form action="/posts/<%= post._id %>"><button class="btn">Details</button></form>
-    <% if (user) { %>
-    <!-- <form action="/posts/<%= post._id %>/edit"><button>Edit Post</button></form> -->
+    <% if(post.author.equals(user?.profile._id)) { %>
     <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
       <button class="delete-btn">Delete</button>
     </form>

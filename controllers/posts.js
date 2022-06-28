@@ -2,6 +2,7 @@ import { Post } from '../models/post.js'
 
 function index(req, res) {
   Post.find({})
+  .populate('author')
   .then(posts => {
     res.render('posts/index', {
       posts,
