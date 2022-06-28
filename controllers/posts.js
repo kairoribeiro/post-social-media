@@ -72,29 +72,25 @@ function createComment(req, res) {
 
 
 function editComment(req, res) {
-  // // console.log(typeof req.params.commentId)
   // req.body.author = req.user.profile._id
-  // Post.findById(req.params.postId)
+  Post.findById(req.params.postId)
+  .then(post => {
+    const comment = post.comments.id(req.params.commentId)
+    // post.save()
   // .then(post => {
-  // //   console.log(post.comments)
-  // //   console.log('Filter', post.comments.find(comment =>
-  // //     comment._id.slice(14, -2) ===  req.params.commentId))
-  //   post.comments(req.body)
-  //   post.save()
-  // .then(post => {
-  //   res.render("posts/edit", {
-  //     post, 
-  //     title: "Edit Comment"
-  //   })
+    res.render("posts/edit", {
+      post, 
+      comment,
+      title: "Edit Comment"
+    })
   // })
 
-  // })
-  // .catch(err => {
-  //   console.log(err)
-  //   res.redirect("/")
-  // })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
 }
-
 
 
  function deleteComment(req, res) {

@@ -34,9 +34,9 @@
     <h3> <%= user.profile.name %></h3>
     <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar"/>
     <div class="comment"><%= comment.comment %></div>
+    </div>
     <div ><%= comment.createdAt.toLocaleDateString() %></div>
     <div><%= comment.reaction %></div>
-    </div>
 
 
     <% if (user) { %>

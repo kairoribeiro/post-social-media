@@ -18,8 +18,8 @@
   
   .card {
     display: flex;
-    width: 300px;
-    background-color: rgb(240, 216, 240);
+    width: 200px;
+    background-color: rgb(216, 157, 216);
     border: 2px solid rgb(105, 6, 79);
     border-radius: 10px;
     color: black;
