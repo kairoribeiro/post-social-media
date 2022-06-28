@@ -1,16 +1,20 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/movies/edit.css" />
+<link rel="stylesheet" href="/stylesheets/style.css" />
 <%- include('../partials/nav') %>
 
 <main>
+    <h1>Edit Post</h1>
     <div class="profile-post">
         <h3> <%= user.profile.name %></h3>
         <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar"/>
         <div class=" post" ><%= post.post %></div>
-        <a href="/posts/<%= post._id %>/edit">
-          <button>Edit Post</button>
-        </a>
-      </div>
+        <a href="/posts/<%= post._id %>/edit"> </a>
+        </div>
+        <form class="post-area" action="/posts/<%= post._id %>?_method=PUT" method="POST" >
+            <label for="post-textarea"></label>
+            <textarea type= "text" name="post" id="post-textarea" cols="70" rows="5" maxlength="150"></textarea>
+            <button>Edit Post</button>
+        </form>
 </main>
 
 <%- include("../partials/footer") %>

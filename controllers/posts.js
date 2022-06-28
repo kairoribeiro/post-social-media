@@ -64,7 +64,25 @@ function edit(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/")
+    res.redirect("/posts")
+  })
+}
+
+function update(req, res) {
+  Post.findById(req.params.id)
+  .then(post => {
+    if (post.author.equals(req.user.profile._id)) {
+      post.updateOne(req.body, {new: true})
+      .then(()=> {
+        res.redirect(`/posts/${post._id}`)
+      })
+    } else {
+      throw new Error ('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/posts`)
   })
 }
 
@@ -140,6 +158,7 @@ export {
   show,
   deletePost as delete,
   edit,
+  update,
   createComment,
   // editComment,
   deleteComment,

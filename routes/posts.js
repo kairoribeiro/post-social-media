@@ -19,8 +19,15 @@ router.get('/:id', postsCtrl.show)
 //DELETE localhost:3000/posts/:id
 router.delete("/:id", isLoggedIn, postsCtrl.delete)
 
-// localhost:3000/posts/:id/edit
-router.get("/:id/edit", postsCtrl.edit)
+//GET localhost:3000/posts/:id/edit
+router.get("/:id/edit", isLoggedIn, postsCtrl.edit)
+
+//PUT localhost:3000/posts/:id
+router.put("/:id", isLoggedIn, postsCtrl.update)
+
+
+
+
 
 // GET localhost:3000/postsId/comments/commentId/edit
 // router.get('/:postId/comments/:commentId/edit', isLoggedIn, postsCtrl.editComment)
