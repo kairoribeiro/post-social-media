@@ -19,10 +19,13 @@ router.get('/:id', postsCtrl.show)
 //DELETE localhost:3000/posts/:id
 router.delete("/:id", isLoggedIn, postsCtrl.delete)
 
-// GET localhost:3000/postsId/comments/commentId/edit
-router.get('/:postId/comments/:commentId/edit', isLoggedIn, postsCtrl.editComment)
+// localhost:3000/posts/:id/edit
+router.get("/:id/edit", postsCtrl.edit)
 
-//DELETE localhost:3000/postsId/comments/commentId
+// GET localhost:3000/postsId/comments/commentId/edit
+// router.get('/:postId/comments/:commentId/edit', isLoggedIn, postsCtrl.editComment)
+
+//DELETE localhost:3000/postsId/comments/commentIdv (delete commnet)
 router.delete('/:postId/comments/:commentId', isLoggedIn, postsCtrl.deleteComment)
 
 

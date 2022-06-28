@@ -7,6 +7,9 @@
   <h3> <%= user.profile.name %></h3>
   <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar"/>
   <div class=" post" ><%= post.post %></div>
+  <a href="/posts/<%= post._id %>/edit">
+    <button>Edit Post</button>
+  </a>
 </div>
 
 
@@ -40,7 +43,7 @@
 
 
     <% if (user) { %>
-    <form action="/posts/<%= post._id %>/comments/<%= comment._id %>/edit"><button class="btn">Edit Comment</button></form>
+    <!-- <form action="/posts/<%= post._id %>/comments/<%= comment._id %>/edit"><button class="btn">Edit Comment</button></form> -->
     <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST"><button class="delete-btn">Delete</button></form>
     <% } %>
 

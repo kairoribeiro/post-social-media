@@ -54,6 +54,28 @@ function deletePost(req, res) {
   })
 }
 
+function edit(req, res) {
+  Post.findById(req.params.id)
+  .then(post => {
+    res.render("posts/edit", {
+      post, 
+      title: "Edit Post"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
+
+
+
+
+
+
+
+
 function createComment(req, res) {
   req.body.author = req.user.profile._id
   Post.findById(req.params.id)
@@ -71,26 +93,27 @@ function createComment(req, res) {
 }
 
 
-function editComment(req, res) {
-  // req.body.author = req.user.profile._id
-  Post.findById(req.params.postId)
-  .then(post => {
-    const comment = post.comments.id(req.params.commentId)
-    // post.save()
-  // .then(post => {
-    res.render("posts/edit", {
-      post, 
-      comment,
-      title: "Edit Comment"
-    })
-  // })
 
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect("/")
-  })
-}
+// function editComment(req, res) {
+//   // req.body.author = req.user.profile._id
+//   Post.findById(req.params.postId)
+//   .then(post => {
+//     const comment = post.comments.id(req.params.commentId)
+//     // post.save()
+//   // .then(post => {
+//     res.render("posts/edit", {
+//       post, 
+//       comment,
+//       title: "Edit Comment"
+//     })
+//   // })
+
+//   })
+//   .catch(err => {
+//     console.log(err)
+//     res.redirect("/")
+//   })
+// }
 
 
  function deleteComment(req, res) {
@@ -116,7 +139,8 @@ export {
   create,
   show,
   deletePost as delete,
+  edit,
   createComment,
-  editComment,
+  // editComment,
   deleteComment,
 }
