@@ -72,22 +72,47 @@ function createComment(req, res) {
 
 
 function editComment(req, res) {
-  req.body.author = req.user.profile._id
-  Post.findById(req.params.id)
+  // // console.log(typeof req.params.commentId)
+  // req.body.author = req.user.profile._id
+  // Post.findById(req.params.postId)
+  // .then(post => {
+  // //   console.log(post.comments)
+  // //   console.log('Filter', post.comments.find(comment =>
+  // //     comment._id.slice(14, -2) ===  req.params.commentId))
+  //   post.comments(req.body)
+  //   post.save()
+  // .then(post => {
+  //   res.render("posts/edit", {
+  //     post, 
+  //     title: "Edit Comment"
+  //   })
+  // })
+
+  // })
+  // .catch(err => {
+  //   console.log(err)
+  //   res.redirect("/")
+  // })
+}
+
+
+
+ function deleteComment(req, res) {
+  // // req.body.author = req.user.profile._id
+  // Post.findById(req.user.profile._id)
+  // .then(post => {
+  //   post.comments.remove(req.params.id)
+  //   post.save()
+  //   .then(() => {
+  //     res.redirect(`/posts/${req.user.post._id}`)
+  //   })
+  // })
   
-
-
-  console.log("Gonna edit comment!")
-}
-
-
-function deleteComment(req, res) {
-  req.body.author = req.user.profile._id
-  Post.findByIdAndDelete(req.params.id)
-
-
-  console.log("Gonna delete comment!")
-}
+  //   .catch(err => {
+  //     console.log(err)
+  //     res.redirect(`/posts/${req.user.post._id}`)
+  //   })
+ }
 
 
 export {
