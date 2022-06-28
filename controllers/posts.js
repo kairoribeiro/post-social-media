@@ -98,21 +98,21 @@ function editComment(req, res) {
 
 
  function deleteComment(req, res) {
-  // // req.body.author = req.user.profile._id
-  // Post.findById(req.user.profile._id)
-  // .then(post => {
-  //   post.comments.remove(req.params.id)
-  //   post.save()
-  //   .then(() => {
-  //     res.redirect(`/posts/${req.user.post._id}`)
-  //   })
-  // })
+req.body.author = req.user.profile._id
+  Post.findById(req.params.postId)
+  .then(post => {
+    post.comments.remove({_id: req.params.commentId})
+    post.save()
+    .then(() => {
+      res.redirect(`/posts/${req.params.postId}`)
+    })
+  })
   
-  //   .catch(err => {
-  //     console.log(err)
-  //     res.redirect(`/posts/${req.user.post._id}`)
-  //   })
- }
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/posts/${req.params.postId}`)
+    })
+}
 
 
 export {
