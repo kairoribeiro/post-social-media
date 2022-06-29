@@ -9,15 +9,15 @@
 <main>
     <h1>Edit Post</h1>
     <div class="profile-post">
-        <h3> <%= user.profile.name %></h3>
-        <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar"/>
+        <h3> <%= post.author.name %></h3>
+        <img src="<%= post.author.avatar%>" alt="<%= post.author.name %> avatar"/>
         <div class=" post" ><%= post.post %></div>
         <a href="/posts/<%= post._id %>/edit"> </a>
         </div>
         <form class="post-area" action="/posts/<%= post._id %>?_method=PUT" method="POST" >
             <label for="post-textarea"></label>
             <textarea type= "text" name="post" id="post-textarea" cols="60" rows="5" maxlength="150"><%= post.post %></textarea>
-            <button>Edit Post</button>
+            <button class="btn">Edit Post</button>
         </form>
 </main>
 

@@ -11,12 +11,12 @@
 <% if (user) { %>
 <form  action="/posts" method="POST" >
     <label for="post-textarea"></label>
-    <textarea type= "text" name="post" id="post-textarea" cols="70" rows="5" maxlength="150"></textarea>
+    <textarea type= "text" name="post" id="post-textarea" cols="70" rows="7" maxlength="150"></textarea>
     <button class="btn" type="submit">talk</button>
 </form>
 <% } %>
 
-  <h1>Timeline</h1>
+  <h1 class="logo">see what they are talking about</h1>
   <!-- <ul> -->
   <% posts.forEach(post => { %>
     <div class="profile-post">

@@ -13,20 +13,19 @@
   <div class=" post" ><%= post.post %></div>
   <% if (post.author.equals(user?.profile._id)) {  %>
   <a href="/posts/<%= post._id %>/edit">
-    <button>Edit Post</button>
+    <button  class="btn" >Edit Post</button>
   </a>
   <% } %>
 </div>
 
 
-<!-- <h2>Comment</h2> -->
 <form class="post-area"
   id="add-comment-form"
   action="/posts/<%= post._id %>/comments"
   method="POST"
 >
   <label for="post-textarea">Comment:</label>
-  <textarea type= "text" name="comment" id="post-textarea" cols="50" rows="5" maxlength="150"></textarea>
+  <textarea type= "text" name="comment" id="post-textarea" cols="60" rows="5" maxlength="150"></textarea>
   <label for="reaction-select">Reaction:</label>
   <select name="reaction" id="reaction-select">
     <option value="👍">👍</option>
@@ -35,7 +34,7 @@
     <option value="😱">😱</option>
     <option value="🤮">🤮</option>
   </select>
-  <button type="submit">talk</button>
+  <button class="btn" type="submit">talk</button>
 </form>
 
 

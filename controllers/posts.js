@@ -31,6 +31,7 @@ function create(req, res) {
 
 function show(req, res) {
   Post.findById(req.params.id)
+  .populate('author')
   .then(post => {
     res.render('posts/show', { 
       title: 'Post Details', 
@@ -57,6 +58,7 @@ function deletePost(req, res) {
 
 function edit(req, res) {
   Post.findById(req.params.id)
+  .populate('author')
   .then(post => {
     res.render("posts/edit", {
       post, 
@@ -71,6 +73,7 @@ function edit(req, res) {
 
 function update(req, res) {
   Post.findById(req.params.id)
+  .populate('author')
   .then(post => {
     if (post.author.equals(req.user.profile._id)) {
       post.updateOne(req.body, {new: true})
@@ -89,15 +92,10 @@ function update(req, res) {
 
 
 
-
-
-
-
-
-
 function createComment(req, res) {
   req.body.author = req.user.profile._id
   Post.findById(req.params.id)
+  .populate('author')
   .then(post => {
     post.comments.push(req.body)
     post.save()
@@ -113,31 +111,11 @@ function createComment(req, res) {
 
 
 
-// function editComment(req, res) {
-//   // req.body.author = req.user.profile._id
-//   Post.findById(req.params.postId)
-//   .then(post => {
-//     const comment = post.comments.id(req.params.commentId)
-//     // post.save()
-//   // .then(post => {
-//     res.render("posts/edit", {
-//       post, 
-//       comment,
-//       title: "Edit Comment"
-//     })
-//   // })
-
-//   })
-//   .catch(err => {
-//     console.log(err)
-//     res.redirect("/")
-//   })
-// }
-
-
  function deleteComment(req, res) {
 req.body.author = req.user.profile._id
   Post.findById(req.params.postId)
+  .populate('author')
+
   .then(post => {
     post.comments.remove({_id: req.params.commentId})
     post.save()
@@ -161,6 +139,5 @@ export {
   edit,
   update,
   createComment,
-  // editComment,
   deleteComment,
 }

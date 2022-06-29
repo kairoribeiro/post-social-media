@@ -48,6 +48,7 @@ nav {
 nav > a {
   margin: 10px;
   text-decoration: none;
+  color: rgb(28, 111, 28);
 }
 
 nav > img {
@@ -120,9 +121,21 @@ h1 {
   }
 
   .delete-btn {
-   /* background-color: rgb(227, 130, 130); */
+    background-color: rgb(215, 104, 113);
+    border-radius: 5px;
   }
 
   .btn {
-    /* background-color: rgb(150, 98, 199); */
+    background-color: rgb(33, 168, 80);
+    border-radius: 5px;
+
   }
+
+  textarea {
+    outline: none;
+    resize: none;
+    border-radius: 5px;
+  }
+
+
+  
