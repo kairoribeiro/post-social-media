@@ -4,8 +4,8 @@
 
 <main>
 <div class="profile-post">
-  <h3> <%= user.profile.name %></h3>
-  <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar"/>
+  <h3> <%= post.author.name %></h3>
+  <img src="<%= post.author.avatar %>" alt="<%= post.author.name %> avatar"/>
   <div class=" post" ><%= post.post %></div>
   <% if (post.author.equals(user?.profile._id)) {  %>
   <a href="/posts/<%= post._id %>/edit">
@@ -36,8 +36,8 @@
 
     <% post.comments.forEach(function(comment) { %>
     <div class="profile-post">
-    <h3> <%= user.profile.name %></h3>
-    <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar"/>
+    <h3> <%= comment.author.name %></h3>
+    <img src="<%= comment.author.avatar %>" alt="<%= comment.author.name %> avatar"/>
     <div class="comment"><%= comment.comment %></div>
     </div>
     <div ><%= comment.createdAt.toLocaleDateString() %></div>
