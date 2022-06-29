@@ -9,7 +9,7 @@
 <main>
   
 <% if (user) { %>
-<form class="post-area" action="/posts" method="POST" >
+<form  action="/posts" method="POST" >
     <label for="post-textarea"></label>
     <textarea type= "text" name="post" id="post-textarea" cols="70" rows="5" maxlength="150"></textarea>
     <button class="btn" type="submit">talk</button>
@@ -20,7 +20,7 @@
   <!-- <ul> -->
   <% posts.forEach(post => { %>
     <div class="profile-post">
-    <h3> <%= post.author.name %></h3>
+    <h4> <%= post.author.name %></h4>
     <img src="<%= post.author.avatar %>" alt="<%= post.author.name %> avatar"/>
     <div class="post"> <%= post.post %> </div>
     <form action="/posts/<%= post._id %>"><button class="btn">Details</button></form>

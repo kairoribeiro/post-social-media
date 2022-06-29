@@ -1,6 +1,10 @@
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/style.css" />
 <%- include('../partials/nav') %>
+<aside>
+    <div><h1></h1></div>
+  </aside>
+
 
 <main>
     <h1>Edit Post</h1>
@@ -12,10 +16,12 @@
         </div>
         <form class="post-area" action="/posts/<%= post._id %>?_method=PUT" method="POST" >
             <label for="post-textarea"></label>
-            <textarea type= "text" name="post" id="post-textarea" cols="70" rows="5" maxlength="150"></textarea>
-            <button></button>
+            <textarea type= "text" name="post" id="post-textarea" cols="60" rows="5" maxlength="150"><%= post.post %></textarea>
+            <button>Edit Post</button>
         </form>
 </main>
+
+<article><div><h1></h1></div></article>
 
 <%- include("../partials/footer") %>
 

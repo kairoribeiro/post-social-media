@@ -1,6 +1,10 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/style.css" />
+<link rel="stylesheet" href="/stylesheets/profile/style.css" />
 <%- include('../partials/nav') %>
+
+<aside>
+  <div><h1></h1></div>
+</aside>
 
 <main>
 <div class="profile-post">
@@ -16,13 +20,13 @@
 
 
 <!-- <h2>Comment</h2> -->
-<form 
+<form class="post-area"
   id="add-comment-form"
   action="/posts/<%= post._id %>/comments"
   method="POST"
 >
   <label for="post-textarea">Comment:</label>
-  <ul><li></li><textarea type= "text" name="comment" id="post-textarea" cols="85" rows="5" maxlength="150"></textarea></li></ul>
+  <textarea type= "text" name="comment" id="post-textarea" cols="50" rows="5" maxlength="150"></textarea>
   <label for="reaction-select">Reaction:</label>
   <select name="reaction" id="reaction-select">
     <option value="👍">👍</option>
@@ -34,25 +38,30 @@
   <button type="submit">talk</button>
 </form>
 
-    <% post.comments.forEach(function(comment) { %>
+
+<% post.comments.forEach(function(comment) { %>
+
     <div class="profile-post">
+
     <h3> <%= comment.author.name %></h3>
     <img src="<%= comment.author.avatar %>" alt="<%= comment.author.name %> avatar"/>
     <div class="comment"><%= comment.comment %></div>
-    </div>
-    <div ><%= comment.createdAt.toLocaleDateString() %></div>
+    
+    <div><%= comment.createdAt.toLocaleDateString() %></div>
     <div><%= comment.reaction %></div>
 
 
     <% if (comment.author.equals(user?.profile._id)) {  %>
-    <!-- <form action="/posts/<%= post._id %>/comments/<%= comment._id %>/edit"><button class="btn">Edit Comment</button></form> -->
     <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST"><button class="delete-btn">Delete</button></form>
     <% } %>
-
+  </div>
   <% }) %>
 
 
 
 </main>
+
+
+<article><div><h1></h1></div></article>
   
 <%- include('../partials/footer') %>

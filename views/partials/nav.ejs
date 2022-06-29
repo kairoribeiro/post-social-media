@@ -1,9 +1,11 @@
   <% if (!user) { %>
     <link rel="stylesheet" href="/stylesheets/siwg.css">
+    
   <% } %>
 </head>
 <body>
   <nav>
+    <h1 class="logo">talk</h1>
     <% if (user) { %>
       <a href="/profiles">Friends</a>
       <a href="/posts" <%- title === 'Home Page' ? 'class="active"' : '' %>>
