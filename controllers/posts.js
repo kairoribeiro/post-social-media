@@ -31,7 +31,17 @@ function create(req, res) {
 
 function show(req, res) {
   Post.findById(req.params.id)
-  .populate('author')
+  .populate([
+    {
+      path: 'comments',
+      populate: {
+        path: 'author',
+      },
+    },
+    {
+      path: 'author',
+    },
+  ])
   .then(post => {
     res.render('posts/show', { 
       title: 'Post Details', 

@@ -5,7 +5,7 @@
 *[Deployed link](https://post-social-media.herokuapp.com/)* <br>
 *[Trello planning](https://trello.com/b/GmyzpIsa/post-social-media)*
 
-![WebPage!](/data/main.png "Main View")
+![WebPage!](/public/data/main.png "Main View")
 
 
 <h1>Technologies Used </h1>
